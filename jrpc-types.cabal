@@ -2,7 +2,6 @@ cabal-version:      3.4
 name:               jrpc-types
 version:            0.1.0.0
 license:            MIT
-license-file:       LICENSE
 author:             Yan Shkurinsky
 maintainer:         yan.shkurinsky@gmail.com
 category:           Network
