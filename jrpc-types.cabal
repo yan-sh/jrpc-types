@@ -1,0 +1,22 @@
+cabal-version:      3.4
+name:               jrpc-types
+version:            0.1.0.0
+license:            MIT
+license-file:       LICENSE
+author:             Yan Shkurinsky
+maintainer:         yan.shkurinsky@gmail.com
+category:           Network
+build-type:         Simple
+
+common extensions
+    default-extensions: LambdaCase BlockArguments OverloadedStrings DerivingVia
+
+common warnings
+    ghc-options: -Wall
+
+library
+    import:           warnings, extensions
+    exposed-modules:  JRPC.Types
+    build-depends:    base, ghc-prim, aeson, text, vector, unordered-containers
+    hs-source-dirs:   src
+    default-language: GHC2021
