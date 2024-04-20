@@ -16,7 +16,7 @@ import qualified Data.Aeson.KeyMap as KM
 import qualified Data.Aeson.Key as K
 import qualified Data.HashMap.Strict as HM
 
-data CustomError = CustomError !Text (Maybe Object) !Int
+data CustomError = CustomError !Text (Maybe Value) !Int
 
 data JsonRpcError n =
     ParseError
@@ -30,7 +30,7 @@ newtype Param (name :: Symbol) = Param (Maybe Value)
 class ToMethod f m where
   mkMethod :: f -> Either Array Object -> m (Either CustomError Value)
 
-instance 
+instance
     ( Applicative m
     , ToMethodArray f m
     , ToMethodObject f m
@@ -79,6 +79,6 @@ instance ToMethodArray (m (Either CustomError Value)) m where
   mkMethodArray = const
   {-# INLINE mkMethodArray #-}
 
-newtype Method = Method (Either Array Object -> IO (Either CustomError Value)) 
+newtype Method = Method (Either Array Object -> IO (Either CustomError Value))
 
 newtype MethodMap = MethodMap (HM.HashMap Text Method)
