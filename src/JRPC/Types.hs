@@ -16,7 +16,7 @@ import qualified Data.Aeson.KeyMap as KM
 import qualified Data.Aeson.Key as K
 import qualified Data.HashMap.Strict as HM
 
-data CustomError = CustomError !Text (Maybe Object) !Int
+data CustomError = CustomError !Text (Maybe Value) !Int
 
 data JsonRpcError n =
     ParseError
