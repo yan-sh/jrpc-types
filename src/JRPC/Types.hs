@@ -79,6 +79,6 @@ instance ToMethodArray (m (Either CustomError Value)) m where
   mkMethodArray = const
   {-# INLINE mkMethodArray #-}
 
-newtype Method = Method (Either Array Object -> IO (Either CustomError Value)) 
+newtype Method m = Method (Either Array Object -> m (Either CustomError Value)) 
 
-newtype MethodMap = MethodMap (HM.HashMap Text Method)
+newtype MethodMap m = MethodMap (HM.HashMap Text (Method m))
